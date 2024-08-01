@@ -1,32 +1,30 @@
-# Chef Recipe for Apache server
+# Chef
 
-This repository contains a Chef recipe to install and configure the `httpd` service along with creating specific files.
+Chef is a configuration management tool. Configuration means we have to configure our system by installing OS like Ubuntu, Linux, CentOS, and Windows, and other packages and services like Apache, Nginx, and Tomcat which are web servers. It's written in Ruby and Erlang and was developed by Adam Jacob in 2009. It’s a pull-based tool like Puppet. It’s an operational tool and is open source.
 
-## Chef Recipe Content
+## Infrastructure as Code (IAC)
 
-The following Chef recipe performs the following tasks:
-1. Creates a file `/home/ec2-user/Desktop/alnafi-2.0`.
-2. Installs the `httpd` package.
-3. Creates an index file at `/var/www/html/index.html`.
-4. Enables and starts the `httpd` service.
+Infrastructure as Code is a very important term used in DevOps that means we create/build infrastructure through code.
 
-```ruby
-file '/home/ec2-user/Desktop/alnafi-2.0' do
-  content 'Welcome to chef-devops Lets automate our machines through chef'
-  action :create
-end
+## Chef Architecture
 
-package 'httpd' do
-  action :install
-end
+We have a Chef Workstation on which we write our code. After this, we save this code on the Chef Server and then through Knife we run it on our machines where we want to do configuration. Ohai is a very important component that has all the information of that machine which we want to configure.
 
-file '/var/www/html/index.html' do
-  content 'Welcome to apache server'
-  action :create
-end
+## How We Work in Chef Tool
 
-service 'httpd' do
-  action [:enable, :start]
-end
+After installing Chef, we will create a cookbooks directory through:
 
-# Chef Attribute:
+```bash
+mkdir cookbooks
+
+After creating cookbooks directory through #cd cookbooks we are now in our cookbooks directory
+
+Here we will create a cookbook through cli through command
+#chef generate cookbook <cookbook name>
+
+After creating cookbook we will create a recipe 
+#chef generate recipe <recipe name>
+
+Recipe will be in ruby language that you don’t worry if you are not familiar with Ruby just understand its syntax and then after you can find different configuration files in chef market just change a little bit according to your need and configure your machine accordingly.
+
+Then you have to come in cookbooks dir where you can write code in Ruby
