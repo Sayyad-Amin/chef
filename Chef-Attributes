@@ -1,0 +1,4 @@
+# Chef Attribute:
+Attribute is a key value pair which represents a specific detail about a node.
+
+We will create a cookbook name attribute-cookbook and a recipe inside with name attribute-recipe.
